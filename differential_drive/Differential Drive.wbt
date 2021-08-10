@@ -1,0 +1,204 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.03728679908273388 0.9888178089278509 0.144391950472621 3.6415995834508896
+  position -1.3885105363715016 1.3773693667249929 -1.9623567073071335
+  follow "robot:solid"
+  followType "Mounted Shot"
+}
+TexturedBackground {
+  texture "noon_cloudy_mountains"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  rotation 0 1 0 -0.523595307179586
+  floorSize 100 100
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallHeight 1
+}
+Robot {
+  rotation 0 1 0 -0.523595307179586
+  children [
+    Robot {
+      translation 0 0 0.5
+      children [
+        DEF Backbody Solid {
+          translation 0 0.1 0
+          rotation 0 0 1 1.5707996938995747
+          children [
+            DEF BackBody Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.55
+                radius 0.02
+              }
+            }
+          ]
+          name "solid(2)"
+          boundingObject USE BackBody
+          physics Physics {
+          }
+        }
+        DEF FL_LEG_HINGE HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0.3 0.1 0
+          }
+          device [
+            RotationalMotor {
+              name "motor1"
+              maxVelocity 20
+            }
+          ]
+          endPoint DEF BackLEG1 Solid {
+            translation 0.3 0.100359 5.827239999999425e-05
+            rotation -4.183765237003541e-10 -4.3742610357938464e-10 1 1.5708003062764344
+            children [
+              DEF backwheel1 Shape {
+                appearance TireRubber {
+                }
+                geometry Cylinder {
+                  height 0.05
+                  radius 0.1
+                }
+              }
+            ]
+            name "solid(4)"
+            boundingObject USE backwheel1
+            physics Physics {
+            }
+          }
+        }
+        DEF FR_LEG_HINGE HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.3 0.1 0
+          }
+          device [
+            RotationalMotor {
+              name "motor2"
+              maxVelocity 20
+            }
+          ]
+          endPoint DEF BackLEG2 Solid {
+            translation -0.3000000000113184 0.100359170588407 5.827787636758661e-05
+            rotation -3.5491315041190936e-10 -3.6827924650456584e-10 1 1.5707996940480349
+            children [
+              DEF backwheel2 Shape {
+                appearance TireRubber {
+                }
+                geometry Cylinder {
+                  height 0.05
+                  radius 0.1
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE backwheel2
+            physics Physics {
+            }
+          }
+        }
+      ]
+      name "robot(1)"
+      physics Physics {
+      }
+      controller "drive_diff"
+    }
+    DEF Backbody Solid {
+      translation 0 0.1 0
+      rotation 0 0 1 1.5707996938995747
+      children [
+        DEF BackBody Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.55
+            radius 0.02
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    DEF BL_LEG_HINGE HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.3 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF BackLEG1 Solid {
+        translation 0.3 0.100359 5.827239999999885e-05
+        rotation -4.183767592137546e-10 -4.374260250749181e-10 1 1.5708003062764333
+        children [
+          DEF backwheel1 Shape {
+            appearance TireRubber {
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE backwheel1
+        physics Physics {
+        }
+      }
+    }
+    DEF BR_LEG_HINGE HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.3 0.1 0
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF BackLEG2 Solid {
+        translation -0.3000000000113184 0.100359170588407 5.827787636758092e-05
+        rotation -3.549136214388541e-10 -3.682794035135476e-10 1 1.5707996940480338
+        children [
+          DEF backwheel2 Shape {
+            appearance TireRubber {
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.1
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE backwheel2
+        physics Physics {
+        }
+      }
+    }
+    DEF gasket Solid {
+      translation 0 0.12 0.23
+      children [
+        DEF gasket Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.43 0.01 0.7
+          }
+        }
+      ]
+      boundingObject USE gasket
+      physics Physics {
+      }
+    }
+  ]
+  physics Physics {
+  }
+  controller "drive_diff"
+}
