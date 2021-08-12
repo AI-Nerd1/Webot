@@ -5,5 +5,5 @@
 </p>
 
 <p align="center">
-Robotics Simulation Projects.
+Robotics Simulation Projects
 </p>
